@@ -14,10 +14,10 @@ export const getAllProductsThunk = createAsyncThunk(
     'getAllProducts',
     async (_, {dispatch}) => {
         const response = await getAllProducts()
+        console.log(response.data)
         dispatch(clothingShopActions.setCompany(response.data))
     }
 )
-
 
 
 // -------------------------------------- REDUCERS -----------------------------------------------------

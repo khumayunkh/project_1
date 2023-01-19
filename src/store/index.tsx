@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { clothingShopReducers } from '../reducers/clothingStoreReducer';
 
 const store = configureStore({
   reducer: {
+    products: clothingShopReducers
   },
 });
 
