@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from './Header.module.sass'
+import axios from "axios";
 
 function Header(){
     return(
