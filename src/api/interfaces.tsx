@@ -12,3 +12,10 @@ export interface IProducts {
     image: string;
     rating: Rating;
 }
+
+
+export interface IProductsState {
+    productsIsLoading: boolean
+    productsErrorMessage?: string
+    products?: IProducts
+}
