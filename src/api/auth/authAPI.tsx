@@ -15,7 +15,7 @@ export const addNewUser = async(data: IUser) => {
 
 
 export const updateUser = async(data: IUser) => {
-    return await client.patch(`/users/${data.id}`, {
+    await client.patch(`/users/${data.id}`, {
         email: data.email,
         username: data.username,
         password: data.password,
