@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import style from './Header.module.sass'
 import axios from "axios";
 import { useAppDispatch } from "../../hooks";
-import { getAllProductsThunk } from "../../reducers/clothingStoreReducer";
+import { getAllProductsThunk, getSingleProductThunk } from "../../reducers/clothingStoreReducer";
 
 function Header(){
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        dispatch(getAllProductsThunk())
+        dispatch(getSingleProductThunk('1'))
     },[])
     
     return(

@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { getAllProducts } from "../api/api";
+import { getAllProducts, getSingleProduct } from "../api/api";
 import { IProducts, IProductsState } from "../api/interfaces";
 
 
@@ -19,6 +19,14 @@ export const getAllProductsThunk = createAsyncThunk(
     }
 )
 
+export const getSingleProductThunk = createAsyncThunk(
+    'getSingleProduct',
+    async(id: string, {dispatch}) => {
+        const response = await getSingleProduct(id)
+        dispatch(clothingShopActions.setProduct(response.data))
+    }
+)
+
 
 // -------------------------------------- REDUCERS -----------------------------------------------------
 export const clothingShopSlice = createSlice({
@@ -28,7 +36,9 @@ export const clothingShopSlice = createSlice({
         setProducts(state: IProductsState, action: PayloadAction<IProducts>) {
             state.products = action.payload
         },
-
+        setProduct(state: IProductsState, action:PayloadAction<IProducts>){
+            state.singleProduct = action.payload
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(getAllProductsThunk.pending, (state: IProductsState) => {
@@ -38,6 +48,16 @@ export const clothingShopSlice = createSlice({
             state.productsIsLoading = false
         })
         builder.addCase(getAllProductsThunk.rejected, (state: IProductsState, action: any) => {
+            state.productsIsLoading = false
+            state.productsErrorMessage = action.error.message
+        })
+        builder.addCase(getSingleProductThunk.pending, (state: IProductsState) => {
+            state.productsIsLoading = true
+        })
+        builder.addCase(getSingleProductThunk.fulfilled, (state: IProductsState) => {
+            state.productsIsLoading = false
+        })
+        builder.addCase(getSingleProductThunk.rejected, (state: IProductsState, action: any) => {
             state.productsIsLoading = false
             state.productsErrorMessage = action.error.message
         })

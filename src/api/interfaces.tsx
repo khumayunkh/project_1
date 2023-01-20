@@ -18,4 +18,5 @@ export interface IProductsState {
     productsIsLoading: boolean
     productsErrorMessage?: string
     products?: IProducts
+    singleProduct?: IProducts
 }
