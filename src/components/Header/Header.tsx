@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
 import style from './Header.module.sass'
 import { useAppDispatch } from "../../hooks";
+import { addNewProductThunk } from "../../reducers/products/clothingStoreReducer";
 
 function Header(){
     const dispatch = useAppDispatch()
 
-    // useEffect(() => {
-    //     dispatch(addNewProductThunk({
-    //         title: 'test product',
-    //         price: 13.5,
-    //         description: 'lorem ipsum set',
-    //         image: 'https://i.pravatar.cc',
-    //         category: 'electronic'
-    //     }))
-    // },[])
+    useEffect(() => {
+        dispatch(addNewProductThunk({
+            title: 'test product',
+            price: 13.5,
+            description: 'lorem ipsum set',
+            image: 'https://i.pravatar.cc',
+            category: 'electronic'
+        }))
+    },[])
     
     return(
         <>
