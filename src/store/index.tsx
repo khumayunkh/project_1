@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { authReducers } from '../reducers/auth/authReducer';
 import { clothingShopReducers } from '../reducers/products/clothingStoreReducer';
 import { usersReducers } from '../reducers/users/usersReducer';
 
 const store = configureStore({
   reducer: {
     products: clothingShopReducers,
-    users: usersReducers
+    users: usersReducers,
+    auth: authReducers
   },
 });
 

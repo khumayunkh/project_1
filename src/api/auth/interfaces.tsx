@@ -26,6 +26,11 @@ export interface IUser{
     phone: string
 }
 
+export interface ILogin{
+    username: string,
+    password: string
+}
+
 export interface IUserState {
     userIsLoading: boolean
     userErrorMessage?: string

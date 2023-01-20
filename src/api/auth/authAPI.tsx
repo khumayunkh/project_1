@@ -1,5 +1,5 @@
 import { client } from '..'
-import { IUser } from './interfaces'
+import { ILogin, IUser } from './interfaces'
 
 export const getAllUsers = async() => {
     return await client.get('/users') 
@@ -41,9 +41,7 @@ export const deleteUser = async(data: IUser) => {
     return await client.delete(`/users/${data.id}`)
 }
 
-export const login = async(data: IUser) => {
-    return await client.post('/users',{
-        username: data.username,
-        password: data.password
-    })
+export const login = async(data: ILogin) => {
+    const {username, password} = data
+    return await client.post('/users',data)
 }

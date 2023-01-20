@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import style from './Header.module.sass'
 import { useAppDispatch } from "../../hooks";
+import { loginThunk } from "../../reducers/auth/authReducer";
 
 function Header(){
     const dispatch = useAppDispatch()
 
     // useEffect(() => {
-    //     dispatch(updateUserThunk('3'))
+    //     dispatch(loginThunk({
+    //         username: "mor_2314",
+    //         password: "83r5^_"
+    //     }))
     // },[])
     
     return(
