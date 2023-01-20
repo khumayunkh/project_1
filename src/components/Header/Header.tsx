@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 import style from './Header.module.sass'
-import axios from "axios";
 import { useAppDispatch } from "../../hooks";
-import { getAllCategoriesThunk, getAllProductsThunk, getSingleProductThunk } from "../../reducers/clothingStoreReducer";
 
 function Header(){
     const dispatch = useAppDispatch()
 
     // useEffect(() => {
-    //     dispatch(getAllCategoriesThunk())
+    //     dispatch(addNewProductThunk({
+    //         title: 'test product',
+    //         price: 13.5,
+    //         description: 'lorem ipsum set',
+    //         image: 'https://i.pravatar.cc',
+    //         category: 'electronic'
+    //     }))
     // },[])
     
     return(

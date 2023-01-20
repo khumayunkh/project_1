@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IProducts } from "./interfaces";
+import { IAddNewProduct } from "./interfaces";
 
 const client = axios.create({
     baseURL: 'https://fakestoreapi.com/products',
@@ -21,7 +21,7 @@ export const getSingleCategory = async(name: string) =>{
     return await client.get(`/category/${name}`)
 }
 
-export const addNewProduct = async(data: IProducts)=>{
+export const addNewProduct = async(data: IAddNewProduct)=>{
     const {title, price, description, image, category} = data
     await client.post('/', {data})
 }

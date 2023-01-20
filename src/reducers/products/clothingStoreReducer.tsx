@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { getAllCategories, getAllProducts, getSingleProduct } from "../api/api";
-import { ICategories, IProducts, IProductsState } from "../api/interfaces";
+import { addNewProduct, getAllCategories, getAllProducts, getSingleCategory, getSingleProduct } from "../../api/products/productsAPI";
+import { IAddNewProduct, ICategories, IProducts, IProductsState } from "../../api/products/interfaces";
 
 
 
@@ -36,6 +36,21 @@ export const getAllCategoriesThunk = createAsyncThunk(
 )
 
 
+export const getSingleCategoryThunk = createAsyncThunk(
+    'getSingleCategory',
+    async(name: string, {dispatch}) =>{
+        const response = await getSingleCategory(name)
+        dispatch(clothingShopActions.setCategory(response.data))
+    }
+)
+
+export const addNewProductThunk = createAsyncThunk(
+    'addNewProduct',
+    async(data: IAddNewProduct, {dispatch}) => {
+        const response = await addNewProduct(data)
+    }
+)
+
 // -------------------------------------- REDUCERS -----------------------------------------------------
 export const clothingShopSlice = createSlice({
     name: 'clothingShop',
@@ -49,6 +64,9 @@ export const clothingShopSlice = createSlice({
         },
         setCategories(state: IProductsState, actions: PayloadAction<ICategories>){
             state.categories = actions.payload
+        },
+        setCategory(state: IProductsState, action:PayloadAction<IProducts>){
+            state.singleCategory = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -69,6 +87,36 @@ export const clothingShopSlice = createSlice({
             state.productsIsLoading = false
         })
         builder.addCase(getSingleProductThunk.rejected, (state: IProductsState, action: any) => {
+            state.productsIsLoading = false
+            state.productsErrorMessage = action.error.message
+        })
+        builder.addCase(getAllCategoriesThunk.pending, (state: IProductsState) => {
+            state.productsIsLoading = true
+        })
+        builder.addCase(getAllCategoriesThunk.fulfilled, (state: IProductsState) => {
+            state.productsIsLoading = false
+        })
+        builder.addCase(getAllCategoriesThunk.rejected, (state: IProductsState, action: any) => {
+            state.productsIsLoading = false
+            state.productsErrorMessage = action.error.message
+        })
+        builder.addCase(getSingleCategoryThunk.pending, (state: IProductsState) => {
+            state.productsIsLoading = true
+        })
+        builder.addCase(getSingleCategoryThunk.fulfilled, (state: IProductsState) => {
+            state.productsIsLoading = false
+        })
+        builder.addCase(getSingleCategoryThunk.rejected, (state: IProductsState, action: any) => {
+            state.productsIsLoading = false
+            state.productsErrorMessage = action.error.message
+        })
+        builder.addCase(addNewProductThunk.pending, (state: IProductsState) => {
+            state.productsIsLoading = true
+        })
+        builder.addCase(addNewProductThunk.fulfilled, (state: IProductsState) => {
+            state.productsIsLoading = false
+        })
+        builder.addCase(addNewProductThunk.rejected, (state: IProductsState, action: any) => {
             state.productsIsLoading = false
             state.productsErrorMessage = action.error.message
         })

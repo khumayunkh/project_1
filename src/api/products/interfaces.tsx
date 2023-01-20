@@ -13,6 +13,14 @@ export interface IProducts {
     rating: Rating;
 }
 
+export interface IAddNewProduct {
+    title: string;
+    price: number;
+    description: string;
+    category: string;
+    image: string;
+}
+
 export interface ICategories {
     categories: Array<string>
 }
@@ -23,4 +31,5 @@ export interface IProductsState {
     products?: IProducts
     singleProduct?: IProducts
     categories?: ICategories
+    singleCategory? :IProducts
 }
