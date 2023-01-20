@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { getAllProducts, getSingleProduct } from "../api/api";
-import { IProducts, IProductsState } from "../api/interfaces";
+import { getAllCategories, getAllProducts, getSingleProduct } from "../api/api";
+import { ICategories, IProducts, IProductsState } from "../api/interfaces";
 
 
 
@@ -27,6 +27,14 @@ export const getSingleProductThunk = createAsyncThunk(
     }
 )
 
+export const getAllCategoriesThunk = createAsyncThunk(
+    'getAllCategories',
+    async(_, {dispatch}) =>{
+        const response = await getAllCategories()
+        dispatch(clothingShopActions.setCategories(response.data))
+    }
+)
+
 
 // -------------------------------------- REDUCERS -----------------------------------------------------
 export const clothingShopSlice = createSlice({
@@ -38,6 +46,9 @@ export const clothingShopSlice = createSlice({
         },
         setProduct(state: IProductsState, action:PayloadAction<IProducts>){
             state.singleProduct = action.payload
+        },
+        setCategories(state: IProductsState, actions: PayloadAction<ICategories>){
+            state.categories = actions.payload
         }
     },
     extraReducers: (builder) => {

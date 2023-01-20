@@ -13,10 +13,14 @@ export interface IProducts {
     rating: Rating;
 }
 
+export interface ICategories {
+    categories: Array<string>
+}
 
 export interface IProductsState {
     productsIsLoading: boolean
     productsErrorMessage?: string
     products?: IProducts
     singleProduct?: IProducts
+    categories?: ICategories
 }
