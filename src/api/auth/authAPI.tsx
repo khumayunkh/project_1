@@ -6,7 +6,7 @@ export const getAllUsers = async() => {
 }
 
 export const getSingleUser = async(id: string) =>{
-    return await client.get(`users/${id}`) 
+    return await client.get(`/users/${id}`) 
 }
 
 export const addNewUser = async(data: IUser) => {
@@ -38,5 +38,12 @@ export const updateUser = async(data: IUser) => {
 }
 
 export const deleteUser = async(data: IUser) => {
-    return await client.delete(`users/${data.id}`)
+    return await client.delete(`/users/${data.id}`)
+}
+
+export const login = async(data: IUser) => {
+    return await client.post('/users',{
+        username: data.username,
+        password: data.password
+    })
 }

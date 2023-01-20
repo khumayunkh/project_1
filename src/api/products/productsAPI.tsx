@@ -1,5 +1,4 @@
 import { client } from "..";
-import { INewUserAddress } from "../auth/interfaces";
 import { IAddNewProduct } from "./interfaces";
 
 export const getAllProducts = async()=>{
@@ -18,6 +17,6 @@ export const getSingleCategory = async(name: string) =>{
     return await client.get(`/products/category/${name}`)
 }
 
-export const addNewProduct = async(data: INewUserAddress)=>{
+export const addNewProduct = async(data: IAddNewProduct)=>{
     await client.post('/products', {data})
 }
