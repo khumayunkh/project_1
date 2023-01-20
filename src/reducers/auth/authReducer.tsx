@@ -14,7 +14,7 @@ export const loginThunk = createAsyncThunk(
     'login',
     async(data: ILogin, {dispatch}) => {
         const response = await login(data)
-
+        dispatch(authActions.setLogin(response.data))
     }
 ) 
 
@@ -24,6 +24,9 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
+        setLogin(state: IUserState, action: PayloadAction<number>){
+            state.me = action.payload
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(loginThunk.pending, (state: IUserState) => {

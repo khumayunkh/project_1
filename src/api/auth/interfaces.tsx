@@ -35,5 +35,6 @@ export interface IUserState {
     userIsLoading: boolean
     userErrorMessage?: string
     users?: IUser
-    user?: IUser
+    user?: IUser,
+    me?: number
 }
