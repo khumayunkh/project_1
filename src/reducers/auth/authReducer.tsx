@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { login } from "../../api/auth/authAPI";
+import { login, updateUser } from "../../api/auth/authAPI";
 import { ILogin, IUser, IUserState } from "../../api/auth/interfaces";
 
 
@@ -18,6 +18,12 @@ export const loginThunk = createAsyncThunk(
     }
 ) 
 
+export const updateUserThunk = createAsyncThunk(
+    'updateUser',
+    async(data:IUser, {dispatch}) => {
+        const response = await updateUser(data)
+    }
+)
 
 // -------------------------------------- REDUCERS -----------------------------------------------------
 export const authSlice = createSlice({
