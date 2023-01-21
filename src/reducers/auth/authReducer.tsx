@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { login, updateUser } from "../../api/auth/authAPI";
+import { deleteUser, login, updateUser } from "../../api/auth/authAPI";
 import { ILogin, IUser, IUserState } from "../../api/auth/interfaces";
 
 
@@ -20,8 +20,15 @@ export const loginThunk = createAsyncThunk(
 
 export const updateUserThunk = createAsyncThunk(
     'updateUser',
-    async(data:IUser, {dispatch}) => {
+    async(data: IUser, {dispatch}) => {
         const response = await updateUser(data)
+    }
+)
+
+export const deleteUserThunk = createAsyncThunk(
+    'deleteUser',
+    async(id: IUser, {dispatch}) => {
+        const response = await deleteUser(id)
     }
 )
 
@@ -32,6 +39,9 @@ export const authSlice = createSlice({
     reducers: {
         setLogin(state: IUserState, action: PayloadAction<number>){
             state.me = action.payload
+        },
+        setDelete(state: IUserState, action: PayloadAction<number>){
+            state.users = state.user?.filter((user:any) => user.id !== action.payload);
         }
     },
     extraReducers: (builder) => {
