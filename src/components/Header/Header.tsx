@@ -6,7 +6,8 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useAppSelector } from "../../hooks";
 
 function Header(){
-    const {userIsAuth} = useAppSelector(state => state.auth)
+    const IsAuth = useAppSelector(state => state.auth.userIsAuth)
+    
     return(
         <>
         <div className={style.container}>
@@ -19,7 +20,7 @@ function Header(){
                     <NavLink className={style.btn} to='/'>electronics</NavLink>
                 </div>
                 <div className={style.login}>
-                {!userIsAuth ? 
+                {!IsAuth ? 
                     <>
                         <NavLink className={style.btn} to='/'>Login</NavLink>
                         <NavLink className={style.btn} to='/'>Sign Up</NavLink>
