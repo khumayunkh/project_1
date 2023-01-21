@@ -11,7 +11,7 @@ function Header(){
     return(
         <>
         <div className={style.container}>
-            <div className={style.contant}>
+            <div className={style.content}>
                 <div className={style.menu}>
                     <NavLink className={style.btn} to='/'>Home</NavLink>
                     <NavLink className={style.btn} to='/'>Men's</NavLink>

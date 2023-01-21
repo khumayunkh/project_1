@@ -1,16 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React from 'react'
 import './App.sass'
-import Header from './components/Header/Header'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './routers/Layout'
+import Home from './pages/Home/Home'
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<Layout/>}>
-        
+          <Route index element={<Home/>}/>
         </Route>
       </Routes>
     </div>

@@ -22,7 +22,7 @@ export interface IAddNewProduct {
 }
 
 export interface ICategories {
-    categories: Array<string>
+    categories?: Array<string>
 }
 
 export interface IProductsState {
