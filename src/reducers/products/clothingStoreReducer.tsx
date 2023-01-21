@@ -62,7 +62,7 @@ export const clothingShopSlice = createSlice({
         setProduct(state: IProductsState, action:PayloadAction<IProducts>){
             state.singleProduct = action.payload
         },
-        setCategories(state: IProductsState, actions: PayloadAction<ICategories>){
+        setCategories(state: IProductsState, actions: PayloadAction<ICategories[]>){
             state.categories = actions.payload
         },
         setCategory(state: IProductsState, action:PayloadAction<IProducts>){

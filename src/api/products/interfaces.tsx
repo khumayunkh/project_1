@@ -22,7 +22,7 @@ export interface IAddNewProduct {
 }
 
 export interface ICategories {
-    categories?: Array<string>
+    categories?: string
 }
 
 export interface IProductsState {
@@ -30,6 +30,6 @@ export interface IProductsState {
     productsErrorMessage?: string
     products?: IProducts
     singleProduct?: IProducts
-    categories?: ICategories
+    categories?: ICategories[]
     singleCategory? :IProducts
 }

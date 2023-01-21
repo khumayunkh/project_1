@@ -41,7 +41,7 @@ export const authSlice = createSlice({
         setLogin(state: IUserState, action: PayloadAction<number>){
             state.me = action.payload
         },
-        setDelete(state: IUserState, action: PayloadAction<number>){
+        setDelete(state: IUserState, action: PayloadAction<number[]>){
             state.users = state.users?.filter((user:any) => user.id !== action.payload);
         }
     },

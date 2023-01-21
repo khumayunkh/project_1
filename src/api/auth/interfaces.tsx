@@ -35,7 +35,7 @@ export interface IUserState {
     userIsAuth: boolean
     userIsLoading: boolean
     userErrorMessage?: string
-    users?: IUser
+    users?: IUser[]
     user?: IUser,
     me?: number
 }
