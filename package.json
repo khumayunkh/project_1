@@ -9,6 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.5",
     "@reduxjs/toolkit": "^1.9.1",
     "@types/react-redux": "^7.1.25",
     "@types/react-router-dom": "^5.3.3",

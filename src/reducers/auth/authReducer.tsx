@@ -5,7 +5,8 @@ import { ILogin, IUser, IUserState } from "../../api/auth/interfaces";
 
 // -------------------------------------- INITIAL STATE -----------------------------------------------------
 const initialState: IUserState = {
-    userIsLoading: false
+    userIsLoading: false,
+    userIsAuth: false
 }
 
 
@@ -27,7 +28,7 @@ export const updateUserThunk = createAsyncThunk(
 
 export const deleteUserThunk = createAsyncThunk(
     'deleteUser',
-    async(id: IUser, {dispatch}) => {
+    async(id: string, {dispatch}) => {
         const response = await deleteUser(id)
     }
 )
@@ -41,7 +42,7 @@ export const authSlice = createSlice({
             state.me = action.payload
         },
         setDelete(state: IUserState, action: PayloadAction<number>){
-            state.users = state.user?.filter((user:any) => user.id !== action.payload);
+            state.users = state.users?.filter((user:any) => user.id !== action.payload);
         }
     },
     extraReducers: (builder) => {
@@ -50,6 +51,7 @@ export const authSlice = createSlice({
         })
         builder.addCase(loginThunk.fulfilled, (state: IUserState) => {
             state.userIsLoading = false
+            state.userIsAuth = true
         })
         builder.addCase(loginThunk.rejected, (state: IUserState, action: any) => {
             state.userIsLoading = false

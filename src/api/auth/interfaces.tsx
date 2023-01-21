@@ -32,6 +32,7 @@ export interface ILogin{
 }
 
 export interface IUserState {
+    userIsAuth: boolean
     userIsLoading: boolean
     userErrorMessage?: string
     users?: IUser

@@ -37,8 +37,8 @@ export const updateUser = async(data: IUser) => {
     })
 }
 
-export const deleteUser = async(data: IUser) => {
-    return await client.delete(`/users/${data.id}`)
+export const deleteUser = async(id: string) => {
+    return await client.delete(`/users/${id}`)
 }
 
 export const login = async(data: ILogin) => {
