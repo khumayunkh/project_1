@@ -38,7 +38,7 @@ export const getAllCategoriesThunk = createAsyncThunk(
 
 export const getSingleCategoryThunk = createAsyncThunk(
     'getSingleCategory',
-    async(name: string, {dispatch}) =>{
+    async(name: string | undefined, {dispatch}) =>{
         const response = await getSingleCategory(name)
         dispatch(clothingShopActions.setCategory(response.data))
     }

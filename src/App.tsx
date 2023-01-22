@@ -3,6 +3,7 @@ import './App.sass'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './routers/Layout'
 import Home from './pages/Home/Home'
+import Electronics from './pages/Electronics/Electronics'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
+          <Route path='/:name' element={<Electronics/>}/>
         </Route>
       </Routes>
     </div>

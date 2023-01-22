@@ -13,7 +13,7 @@ export const getAllCategories = async() =>{
     return await client.get(`/products/categories`)
 }
 
-export const getSingleCategory = async(name: string) =>{
+export const getSingleCategory = async(name: string | undefined) =>{
     return await client.get(`/products/category/${name}`)
 }
 

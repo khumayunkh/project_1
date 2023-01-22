@@ -23,6 +23,7 @@ export interface IAddNewProduct {
 
 export interface ICategories {
     categories?: string
+    name? : string
 }
 
 export interface IProductsState {
