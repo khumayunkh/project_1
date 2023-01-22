@@ -14,10 +14,6 @@ function Header(){
             <div className={style.content}>
                 <div className={style.menu}>
                     <NavLink className={style.btn} to='/'>Home</NavLink>
-                    <NavLink className={style.btn} to='/'>Men's</NavLink>
-                    <NavLink className={style.btn} to='/'>Women's</NavLink>
-                    <NavLink className={style.btn} to='/'>jewelery</NavLink>
-                    <NavLink className={style.btn} to='/'>electronics</NavLink>
                 </div>
                 <div className={style.login}>
                 {!IsAuth ? 
@@ -27,7 +23,8 @@ function Header(){
                     </>
                     :          
                     <>
-                        <NavLink className={style.btn} to='/'>Profile</NavLink>          
+                        <NavLink className={style.btn} to='/'>Profile</NavLink> 
+                        <NavLink className={style.btn} to='/'>LogOut</NavLink>          
                         <IconButton
                           sx={{ mr: 2 }}
                         >

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { getAllCategoriesThunk } from "../../reducers/products/clothingStoreReducer";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import style from './Home.module.sass'
+import { NavLink } from "react-router-dom";
 
 function Home(){
     const {categories} = useAppSelector(state => state.products)
@@ -10,7 +11,7 @@ function Home(){
     useEffect(() => {
         dispatch(getAllCategoriesThunk())
     },[])
-
+    
     return(
         <>
         <div className={style.container}>
@@ -19,14 +20,15 @@ function Home(){
                     <h1>Goods for every taste</h1>
                 </div>
                 <div className={style.menu}>
-                    {categories?.map((item: any) => 
+                    {categories?.map((item: any, index) => 
                     <>
-                    <div className={style.card}>
+                    <NavLink className={style.card} to={`/${item}`}>
                         <h4>{item}</h4>
-                    </div>
-                    </>)}
+                    </NavLink>
+                    </>
+                    )}
                 </div>
-            </div> 
+            </div>
         </div>
         </>
     )
