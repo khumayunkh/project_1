@@ -19,7 +19,14 @@ function Electronics(){
             <div className={style.content}>
                 {singleCategory?.map((item: any) =>
                     <>
-                    <h4>{item.title}</h4>
+                    <div className={style.card}>
+                        <img src={item.image}/>
+                        <h5>{item.title}</h5>
+                        <h6>{item.price}$</h6>
+                        <p>{item.description.length > 250 ?
+                        `${item.description.substring(0, 180)}...` : item.description
+                        }</p>
+                    </div>
                     </>
                 )}
             </div>
