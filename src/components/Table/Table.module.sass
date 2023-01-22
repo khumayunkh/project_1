@@ -1,0 +1,73 @@
+.table
+	width: 90%
+	margin: 0 auto
+	padding-top: 4rem
+	border-collapse: collapse
+	td
+		padding: 12px 15px
+		border: 1px solid #ddd
+		text-align: left
+		font-size: 16px
+	th
+		padding: 12px 15px
+		border: 1px solid #ddd
+		text-align: left
+		font-size: 16px
+	.navbar
+		color: white
+		background-color: #7875fa
+	@media( max-width: 700px)
+		display: block
+		width: 100%
+		thead
+			display: none
+		tbody
+			display: block
+			width: 100%
+		tr
+			display: block
+			width: 100%
+			margin-bottom: 5rem
+		td
+			display: block
+			width: 100%		
+			text-align: right
+			position: relative	
+			&::before
+				content: attr(data-label)
+				color: #7875fa
+				position: absolute
+				left:0
+				width: 50%
+				padding-left:15px
+				font-size:15px
+				font-weight: bold
+				text-align: left		
+	img
+		width: 2.5rem
+		height: 2.5rem
+	.roles
+		display: flex
+		justify-content: space-between
+		align-items: center
+		gap: 2rem
+		@media( max-width: 700px )
+			justify-content: end			
+		.content
+			display: flex
+			gap: 2rem
+			p
+				background-color: red
+				padding: .4rem
+				font-size: 14px
+				color: white
+				font-weight: 400
+				border-radius: 5px
+				@media( max-width: 450px )
+					font-size: 10px
+		.btn
+			padding: .3rem
+			color: white
+			background-color: #7875fa
+			border: none	
+			border-radius: 5px
