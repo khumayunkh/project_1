@@ -1,13 +1,17 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { FormControl, IconButton, Input, InputAdornment, InputLabel, TextField } from "@mui/material"
-import React from "react"
+import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { NavLink } from "react-router-dom"
+import { ILogin } from "../../api/auth/interfaces"
+import { useAppDispatch } from "../../hooks"
+import { loginThunk } from "../../reducers/auth/authReducer"
 import style from './Login.module.sass'
 
 
 function Login(){
-    const {register, handleSubmit} = useForm()
+    const dispatch = useAppDispatch()
+    const {register, handleSubmit} = useForm<ILogin>()
     const [showPassword, setShowPassword] = React.useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -18,13 +22,22 @@ function Login(){
 
     const username = register('username', {required: true})
     const password = register('password', {required: true})
-
+    
+    const onSubmit = (data: ILogin)  => {
+        dispatch(loginThunk({
+            username: data.username,
+            password: data.password
+        }))
+    }
+    
     return(
         <>
         <div className={style.container}>
             <div className={style.content}>
                 <h1>Login</h1>
-                <form className={style.form}>
+                <form
+                    onSubmit={handleSubmit(onSubmit)} 
+                    className={style.form}>
                     <TextField 
                         {...username}
                         id="standard-basic" 
@@ -42,6 +55,7 @@ function Login(){
                                 aria-label="toggle password visibility"
                                 onClick={handleClickShowPassword}
                                 onMouseDown={handleMouseDownPassword}
+                                {...password}
                               >
                                 {showPassword ? <VisibilityOff /> : <Visibility />}
                               </IconButton>
