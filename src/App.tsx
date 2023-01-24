@@ -3,7 +3,7 @@ import './App.sass'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './routers/Layout'
 import Home from './pages/Home/Home'
-import Electronics from './pages/Electronics/Electronics'
+import SingleCategory from './pages/SingleCategory/SingleCategory'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home/>}/>
-          <Route path='/:name' element={<Electronics/>}/>
+          <Route path='/:name' element={<SingleCategory/>}/>
         </Route>
       </Routes>
     </div>
