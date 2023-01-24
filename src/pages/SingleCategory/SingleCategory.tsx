@@ -12,7 +12,7 @@ function SingleCategory(){
 
     useEffect(() => {
         dispatch(getSingleCategoryThunk(name))
-    }, [])
+    }, [name])
     
     return(
         <>
