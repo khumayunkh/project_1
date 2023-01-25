@@ -19,8 +19,8 @@ function Header(){
                 <div className={style.login}>
                 {!IsAuth ? 
                     <>
-                        <NavLink className={style.btn} to='/Login'>Login</NavLink>
-                        <NavLink className={style.btn} to='/'>Sign Up</NavLink>
+                        <NavLink className={style.btn} to='/login'>Login</NavLink>
+                        <NavLink className={style.btn} to='/signUp'>Sign Up</NavLink>
                     </>
                     :          
                     <>

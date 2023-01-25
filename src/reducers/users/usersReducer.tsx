@@ -6,7 +6,8 @@ import { IUser, IUserState } from "../../api/auth/interfaces";
 
 // -------------------------------------- INITIAL STATE -----------------------------------------------------
 const initialState: IUserState = {
-    userIsLoading: false
+    userIsLoading: false,
+    userIsAuth: false
 }
 
 
@@ -39,7 +40,7 @@ export const usersSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {
-        setUsers(state: IUserState, action: PayloadAction<IUser>){
+        setUsers(state: IUserState, action: PayloadAction<IUser[]>){
             state.users = action.payload
         },
         setSingleUser(state: IUserState, action: PayloadAction<IUser>){

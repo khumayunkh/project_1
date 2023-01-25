@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { deleteUser, login, updateUser } from "../../api/auth/authAPI";
+import { deleteUser, login, addNewUser } from "../../api/auth/authAPI";
 import { ILogin, IUser, IUserState } from "../../api/auth/interfaces";
 
 
@@ -19,10 +19,10 @@ export const loginThunk = createAsyncThunk(
     }
 ) 
 
-export const updateUserThunk = createAsyncThunk(
-    'updateUser',
+export const addNewUserThunk = createAsyncThunk(
+    'addNewUser',
     async(data: IUser, {dispatch}) => {
-        const response = await updateUser(data)
+        const response = await addNewUser(data)
     }
 )
 
