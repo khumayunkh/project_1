@@ -28,7 +28,7 @@ export interface ICategories {
 export interface IProductsState {
     productsIsLoading: boolean
     productsErrorMessage?: string
-    products?: IProducts
+    products?: IProducts[]
     singleProduct?: IProducts
     categories?: ICategories[]
     singleCategory? :IProducts[]

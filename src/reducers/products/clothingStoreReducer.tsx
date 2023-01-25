@@ -56,7 +56,7 @@ export const clothingShopSlice = createSlice({
     name: 'clothingShop',
     initialState,
     reducers: {
-        setProducts(state: IProductsState, action: PayloadAction<IProducts>) {
+        setProducts(state: IProductsState, action: PayloadAction<IProducts[]>) {
             state.products = action.payload
         },
         setProduct(state: IProductsState, action:PayloadAction<IProducts>){

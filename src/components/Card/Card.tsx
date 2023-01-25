@@ -1,12 +1,16 @@
 import React from "react";
+import { IconButton } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 import { IProducts } from "../../api/products/interfaces";
 import style from './Card.module.sass'
+import { useAppSelector } from "../../hooks";
 
 interface Props {
     products : IProducts[] | undefined
 }
 
 export const Card: React.FC<Props> = ({products}) => {
+    const isAuth = useAppSelector(state => state.auth.userIsAuth)
     return(
         <>
         <div className={style.content}>
@@ -20,6 +24,9 @@ export const Card: React.FC<Props> = ({products}) => {
                                 `${item.description.substring(0, 180)}...` : item.description
                             }
                         </p>
+                       {isAuth && <IconButton className={style.add_btn}>
+                            <AddIcon sx={{fontSize: 'large'}}/>
+                        </IconButton>}
                     </div>
                 )}
             </div>
