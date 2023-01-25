@@ -59,14 +59,18 @@ export const clothingShopSlice = createSlice({
         setProducts(state: IProductsState, action: PayloadAction<IProducts[]>) {
             state.products = action.payload
         },
-        setProduct(state: IProductsState, action:PayloadAction<IProducts>){
+        setProduct(state: IProductsState, action: PayloadAction<IProducts>){
             state.singleProduct = action.payload
         },
         setCategories(state: IProductsState, actions: PayloadAction<ICategories[]>){
             state.categories = actions.payload
         },
-        setCategory(state: IProductsState, action:PayloadAction<IProducts[]>){
+        setCategory(state: IProductsState, action: PayloadAction<IProducts[]>){
             state.singleCategory = action.payload
+        },
+        setBasket(state: IProductsState, action: PayloadAction<IProducts>){
+            state.basket?.push(action.payload)
+            console.log(state.basket)
         }
     },
     extraReducers: (builder) => {

@@ -32,4 +32,5 @@ export interface IProductsState {
     singleProduct?: IProducts
     categories?: ICategories[]
     singleCategory? :IProducts[]
+    basket? : IProducts[]
 }
