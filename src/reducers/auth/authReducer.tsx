@@ -43,6 +43,9 @@ export const authSlice = createSlice({
         },
         setDelete(state: IUserState, action: PayloadAction<number[]>){
             state.users = state.users?.filter((user:any) => user.id !== action.payload);
+        },
+        setLogOut(state:IUserState) {
+            state.userIsAuth = false
         }
     },
     extraReducers: (builder) => {
@@ -54,6 +57,17 @@ export const authSlice = createSlice({
             state.userIsAuth = true
         })
         builder.addCase(loginThunk.rejected, (state: IUserState, action: any) => {
+            state.userIsLoading = false
+            state.userErrorMessage = action.error.message
+        })
+        builder.addCase(addNewUserThunk.pending, (state: IUserState) => {
+            state.userIsLoading = true
+        })
+        builder.addCase(addNewUserThunk.fulfilled, (state: IUserState) => {
+            state.userIsLoading = false
+            state.userIsAuth = true
+        })
+        builder.addCase(addNewUserThunk.rejected, (state: IUserState, action: any) => {
             state.userIsLoading = false
             state.userErrorMessage = action.error.message
         })

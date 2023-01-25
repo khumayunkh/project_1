@@ -3,10 +3,12 @@ import style from './Header.module.sass'
 import { NavLink } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { authActions } from "../../reducers/auth/authReducer";
 
 function Header(){
     const IsAuth = useAppSelector(state => state.auth.userIsAuth)
+    const dispatch = useAppDispatch()
     
     return(
         <>
@@ -25,7 +27,12 @@ function Header(){
                     :          
                     <>
                         <NavLink className={style.btn} to='/'>Profile</NavLink> 
-                        <NavLink className={style.btn} to='/'>LogOut</NavLink>          
+                        <NavLink
+                            onClick={() => dispatch(authActions.setLogOut())} 
+                            className={style.btn}
+                            to='/'>
+                                LogOut
+                        </NavLink>          
                         <IconButton
                           sx={{ mr: 2 }}
                         >
