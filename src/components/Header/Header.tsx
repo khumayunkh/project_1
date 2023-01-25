@@ -16,7 +16,7 @@ function Header(){
             <div className={style.content}>
                 <div className={style.menu}>
                     <NavLink className={style.btn} to='/'>Home</NavLink>
-                    <NavLink className={style.btn} to='/'>All Products</NavLink>
+                    <NavLink className={style.btn} to='/allProducts'>All Products</NavLink>
                 </div>
                 <div className={style.login}>
                 {!IsAuth ? 
