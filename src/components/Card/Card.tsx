@@ -14,8 +14,6 @@ export const Card: React.FC<Props> = ({products}) => {
     const isAuth = useAppSelector(state => state.auth.userIsAuth)
     const {basket} = useAppSelector(state => state.products)
     const dispatch = useAppDispatch()
-    
-    console.log(basket?.length)
 
     return(
         <>
@@ -30,7 +28,7 @@ export const Card: React.FC<Props> = ({products}) => {
                                 `${item.description.substring(0, 180)}...` : item.description
                             }
                         </p>
-                       {!isAuth &&
+                       {isAuth &&
                        <div onClick={() => dispatch(clothingShopActions.setBasket(item))} className={style.add_btn}> 
                         <IconButton>
                              <AddIcon sx={{fontSize: 'large'}}/>

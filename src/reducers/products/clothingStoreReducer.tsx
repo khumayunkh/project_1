@@ -6,7 +6,8 @@ import { IAddNewProduct, ICategories, IProducts, IProductsState } from "../../ap
 
 // -------------------------------------- INITIAL STATE -----------------------------------------------------
 const initialState: IProductsState = {
-    productsIsLoading: false
+    productsIsLoading: false,
+    basket: []
 }
 
 
