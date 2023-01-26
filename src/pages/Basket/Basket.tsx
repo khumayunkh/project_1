@@ -3,9 +3,11 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import style from './Basket.module.sass'
 import { IconButton } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { clothingShopActions } from "../../reducers/products/clothingStoreReducer";
 
 function Basket(){
     const {basket} = useAppSelector(state => state.products)
+    const dispatch = useAppDispatch()
 
     return(
         <>
@@ -18,8 +20,9 @@ function Basket(){
                         <div className={style.description}>
                             <h4>{item.title}</h4>
                             <p>{item.description}</p>
+                            <h5>{item.price}</h5>
                         </div>
-                        <div className={style.delete_btn}>
+                        <div className={style.delete_btn} onClick={() => dispatch(clothingShopActions.deleteProductFromBasket(item.id))}>
                             <IconButton
                               sx={{ mr: 2 }}
                             >

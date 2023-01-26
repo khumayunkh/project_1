@@ -71,7 +71,9 @@ export const clothingShopSlice = createSlice({
         },
         setBasket(state: IProductsState, action: PayloadAction<IProducts>){
             state.basket?.push(action.payload)
-            console.log(state.basket)
+        },
+        deleteProductFromBasket(state:IProductsState, action:PayloadAction<string>){
+            state.basket = state.basket.filter(item => item.id !== action.payload)
         }
     },
     extraReducers: (builder) => {
