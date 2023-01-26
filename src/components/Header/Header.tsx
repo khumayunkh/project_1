@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from './Header.module.sass'
 import { NavLink } from "react-router-dom";
 import { IconButton } from "@mui/material";
@@ -8,6 +8,7 @@ import { authActions } from "../../reducers/auth/authReducer";
 
 function Header(){
     const IsAuth = useAppSelector(state => state.auth.userIsAuth)
+    const {basket} = useAppSelector(state => state.products)
     const dispatch = useAppDispatch()
     
     return(
@@ -32,12 +33,17 @@ function Header(){
                             className={style.btn}
                             to='/'>
                                 LogOut
-                        </NavLink>          
-                        <IconButton
-                          sx={{ mr: 2 }}
-                        >
-                            <ShoppingBasketIcon sx={{fontSize: 'large'}}/>
-                        </IconButton>
+                        </NavLink>
+                        <div className={style.basket}>
+                            {basket?.length}
+                        </div>
+                        <NavLink to='/basket'>          
+                            <IconButton
+                              sx={{ mr: 2 }}
+                            >
+                                <ShoppingBasketIcon sx={{fontSize: 'large'}}/>
+                            </IconButton>
+                        </NavLink>
                     </>
                 }
                 </div>
