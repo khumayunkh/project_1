@@ -7,6 +7,7 @@ import SingleCategory from './pages/SingleCategory/SingleCategory'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
 import AllProducts from './pages/AllProducts/AllProducts'
+import Basket from './pages/Basket/Basket'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path='/:name' element={<SingleCategory/>}/>
           <Route path='allProducts' element={<AllProducts/>}/>
+          <Route path='basket' element={<Basket/>}/>
         </Route>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
