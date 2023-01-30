@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import style from './Basket.module.sass'
 import { IconButton } from "@mui/material";
@@ -15,7 +15,7 @@ function Basket(){
             <div className={style.content}>
                 {basket.map(item => (
                     <>
-                    <div className={style.card}>
+                    <div key={item.id} className={style.card}>
                         <img src={item.image}/>
                         <div className={style.description}>
                             <h4>{item.title}</h4>

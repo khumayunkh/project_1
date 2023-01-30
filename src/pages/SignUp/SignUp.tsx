@@ -2,7 +2,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { IUser } from "../../api/auth/interfaces"
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { addNewUserThunk } from "../../reducers/auth/authReducer";
 import { ICreateUser } from "./interfaces";

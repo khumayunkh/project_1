@@ -8,6 +8,7 @@ import style from './AllProducts.module.sass'
 function AllProducts(){
     const {products} = useAppSelector(state => state.products)
     const dispatch = useAppDispatch()
+    
     useEffect(() => {
         dispatch(getAllProductsThunk())
     },[products?.length])
