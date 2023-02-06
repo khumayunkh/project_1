@@ -11,6 +11,7 @@ import style from './SignUp.module.sass'
 function SignUp(){
     const dispatch = useAppDispatch()
     const isAuth = useAppSelector(state => state.auth.userIsAuth)
+    
     const {register, handleSubmit} = useForm<ICreateUser>()
 
     const username = register('username', {required: true})
